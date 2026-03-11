@@ -1,0 +1,31 @@
+<p>products works!</p>
+
+<div class="container mt-4">
+  <div class="row">
+
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+
+      <div class="card product-card h-100">
+
+        <img [src]="product.image" class="card-img-top p-3" height="200">
+
+        <div class="card-body">
+
+          <h6 class="category">{{product.category}}</h6>
+
+          <h5 class="title">{{product.title}}</h5>
+
+          <p class="price">Rs. {{product.price}}</p>
+
+          <p class="rating">
+            ⭐ {{product.rating.rate}}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

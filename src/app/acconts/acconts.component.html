@@ -1,0 +1,30 @@
+<p>acconts works!</p>
+<table class="table table-dark table-boardered table-striped">
+
+
+    <thead>
+        <tr>
+            <th>account_name</th>
+             <th>available_balance</th>
+            <th>account_number</th>
+            <th>city</th>
+            <th>profile_picture</th>
+            <th>ifsccode</th>
+            <th>id</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+     
+        <tr *ngFor="let  bankservice of getbankservice" >
+            <td>{{bankservice.account_name}}</td>
+             <td>{{bankservice.available_balance}}</td>
+              <td>{{bankservice.account_number}}</td>
+              <td>{{bankservice.city}}</td>
+              <td>{{bankservice.profile_picture}}</td>
+            <td>{{bankservice.ifsc_code}}</td>
+            <td>{{bankservice.id}}</td>
+        </tr>
+    </tbody>
+</table>

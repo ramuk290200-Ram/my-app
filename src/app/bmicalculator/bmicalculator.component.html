@@ -1,0 +1,17 @@
+<p>bmicalculator works!</p>
+<div class="container">
+  <h2>BMI Calculator</h2>
+
+  <label>Weight (kg):</label>
+  <input type="number" [(ngModel)]="weight" />
+
+  <label>Height (cm):</label>
+  <input type="number" [(ngModel)]="height" />
+
+  <button (click)="calculateBMI()">Calculate</button>
+
+
+    <h3>Your BMI: {{ bmi }}</h3>
+   <p>{{result}}</p>
+  
+</div>

@@ -13,6 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { EventRegistrationComponent } from './event-registration/event-registration.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { FlipkartComponent } from './flipkart/flipkart.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AccontsComponent } from './acconts/acconts.component';
+import { ProductsComponent } from './products/products.component';
+import { ContactModule } from './contact/contact.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,12 +35,21 @@ import { EventRegistrationComponent } from './event-registration/event-registrat
     DataBindingComponent,
     CalculatorComponent,
     DirectivesComponent,
-    EventRegistrationComponent
+    EventRegistrationComponent,
+    EmployeesComponent,
+    FlipkartComponent,
+    VehiclesComponent,
+    AccontsComponent,
+    ProductsComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ContactModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

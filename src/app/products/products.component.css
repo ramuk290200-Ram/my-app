@@ -1,0 +1,33 @@
+.product-card{
+    border: 2px solid #556B2F;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover{
+    transform: scale(1.05);
+}
+
+.category{
+    font-size:14px;
+    color:#333;
+}
+
+.title{
+    font-size:15px;
+    height:40px;
+    overflow:hidden;
+}
+
+.price{
+    color:#d9534f;
+    font-weight:bold;
+}
+
+.rating{
+    background:#eee;
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:4px;
+}

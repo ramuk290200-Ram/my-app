@@ -16,7 +16,11 @@ products: any = [
      {name:'laptop', price:50000},
 ]
 
-isValid:boolean = true;
+isVvalid:boolean=false;
 
+isValid:boolean = false;
 
+// isVvalid(){
+
+// }
 }

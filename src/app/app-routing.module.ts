@@ -9,6 +9,14 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { EventRegistrationComponent } from './event-registration/event-registration.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { FlipkartComponent } from './flipkart/flipkart.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { AccontsComponent } from './acconts/acconts.component';
+import { ProductsComponent } from './products/products.component';
+import { ContactCeoComponent } from './contact/contact-ceo/contact-ceo.component';
+
+
 
 
 const routes: Routes = [
@@ -19,7 +27,14 @@ const routes: Routes = [
     {path: 'data-binding', component: DataBindingComponent},
     {path:'calculator', component: CalculatorComponent},
     {path: 'directives', component:DirectivesComponent},
-    {path: 'event-registration', component:EventRegistrationComponent}
+    {path: 'event-registration', component:EventRegistrationComponent},
+      {path: 'employees', component:EmployeesComponent},
+      {path: 'employees', component:EmployeesComponent},
+    {path: 'flipkart', component:FlipkartComponent},
+     {path: 'vehicles', component:VehiclesComponent},
+      {path: 'acconts', component:AccontsComponent},
+    {path: 'products', component:ProductsComponent},
+      {path: 'contact-ceo', component:ContactCeoComponent},
 
   ]},
   {path:'', component: LoginComponent},

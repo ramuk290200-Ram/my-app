@@ -12,21 +12,22 @@
     </p>
 </select>
 
-<table border="1">
-    <thead>
+<table boarder ="1">
         <tr>
             <th>SNO</th>
             <th>name</th>
             <th>price</th>
         </tr>
-    </thead>
     <tbody>
         <tr *ngFor="let product of products; let i = index">
             <td>{{i+1}}</td>
             <td>{{product.name}}</td>
             <td>{{product.name}}</td>
+
         </tr>
     </tbody>
-    <h1 *ngIf="isValid">hello</h1>
+    <h1 *ngIf="isValid">Ramakrishna</h1>
+
+    <button *ngIf="isVvalid">Login</button>
 
 </table>
