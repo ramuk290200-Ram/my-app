@@ -20,7 +20,5 @@ export class ProductsComponent {
         alert("internal server error");
       }
     )
-
-
   }
 }

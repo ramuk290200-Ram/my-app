@@ -11,6 +11,7 @@
             <th>profile_picture</th>
             <th>ifsccode</th>
             <th>id</th>
+            <th>Actions</th>
             
             
         </tr>
@@ -25,6 +26,11 @@
               <td>{{bankservice.profile_picture}}</td>
             <td>{{bankservice.ifsc_code}}</td>
             <td>{{bankservice.id}}</td>
-        </tr>
+           
+        
+
+            <td>
+                <button (click)="deleteAccount(bankservice.id)" class="btn btn-danger">delete</button>
+            </td>
     </tbody>
 </table>

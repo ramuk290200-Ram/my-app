@@ -7,18 +7,71 @@ import { VehicleService } from '../vehicle.service';
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent {
-vehicles:any = [];
-constructor(private vehicledeteles:VehicleService){
-vehicledeteles.getVehicles().subscribe(
-  (data:any)=>{
-    this.vehicles = data;
-  },
+  vehicles: any = [];
+  constructor(private vehicleService: VehicleService) {
+    vehicleService.getVehicles().subscribe(
+      (data: any) => {
+        this.vehicles = data;
+      },
+
+      (err: any) => {
+        alert("internal server error");
+      }
+    )
+  }
+
+   deleteVehicle(id:string){
+      this.vehicleService.deleteVehicle(id).subscribe(
+        (data: any) =>{
+          alert("deleted successfully!!!");
+          location.reload();
+        },
+        (err:any)=> {
+        alert("internal server error")
+       }
+      )
+    }
+    term:string='';
+      filterVehicles(){
+      this.vehicleService.filterVehicles(this.term).subscribe(
+        (data: any)=>{
+       this.vehicles = data;
+        },
+        (err:any)=> {
+        alert("internal server error")
+        }
+      )
+    }
   
-(err:any)=>{
-   alert("internal server error");
-}
-)
+  
+
+      pagedVehicles(page:number){
+      this.vehicleService.pagedVehicles(page).subscribe(
+        (data: any)=>{
+       this.vehicles = data;
+       console.log(this.vehicles)
+        },
+        (err:any)=> {
+        alert("internal server error")
+        }
+      )
+    }
+
+
+
+    isAsc:boolean = true;
+  sortVehicles(column:string){
+    this.isAsc=!this.isAsc;
+      this.vehicleService.sortVehicles(column,this.isAsc?"asc":"desc").subscribe(
+        (data: any)=>{
+       this.vehicles = data;
+        },
+        (err:any)=> {
+        alert("internal server error")
+        }
+      )
+    }
 
 
 }
-}
+

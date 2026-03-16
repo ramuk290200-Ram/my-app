@@ -1,40 +1,49 @@
-<p>vehicles works!</p>
+<p appColors>vehicles works!</p>
+<input type="text"  [(ngModel)]='term'   placeholder="search">
+<button class="btn btn-primary" (click)="filterVehicles()">search</button>
+
+
 
 <table class="table table-dark table-boardered table-striped">
 
 
     <thead>
         <tr>
-            <th>id</th>
-             <th>image</th>
+            <th>SNO</th>
+
             <th>vehicles</th>
             <th>manufacturer</th>
             <th>model</th>
             <th>type</th>
-            <th>fuel</th>
-            <th>color</th>
+            <th (click)="sortVehicles('fuel')">fuel</th>
+            <th (click)="sortVehicles('color')">color</th>
+             <td>image</td>
             <th>cost</th>
             <th>tyres</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-     
-        <tr *ngFor="let vehicle of vehicles" >
-               
-            <td>{{vehicle.id}}</td>
-            <td>{{vehicle.vehicle}}</td>
-            <td>{{vehicle.manufacturer}}</td>
-            <td>{{vehicle.model}}</td>
+
+        <tr *ngFor="let vehicle of vehicles, let i=index">
+            <td>{{i+1}}</td>
+
+            <td>{{vehicle.vehicles }}</td>
+            <td appColors>{{vehicle.manufacturer | lowercase}}</td>
+            <td>{{vehicle.model | uppercase}}</td>
             <td>{{vehicle.type}}</td>
             <td>{{vehicle.fuel}}</td>
             <td>{{vehicle.color}}</td>
             <td>{{vehicle.image}}</td>
-            <td>{{vehicle.cost}}</td>
+            <td [ngClass]="vehicle.cost > 200 ? 'red' : 'blue'">{{vehicle.cost | rupees}}</td>
             <td>{{vehicle.tyres}}</td>
 
 
+            <td>
+                <button (click)="deleteVehicle(vehicle.id)"  class="btn btn-danger">delete</button>
 
 
+            </td>
 
 
 
@@ -46,9 +55,8 @@
         </tr>
 
 
-
-
-
-
     </tbody>
 </table>
+<button
+    *ngFor="let x of [].constructor(10);let i=index"
+(click)="pagedVehicles(i+1)">{{i+1}}</button>

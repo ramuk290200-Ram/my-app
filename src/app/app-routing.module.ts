@@ -15,30 +15,39 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { AccontsComponent } from './acconts/acconts.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactCeoComponent } from './contact/contact-ceo/contact-ceo.component';
+import { Vehicle2Component } from './vehicle2/vehicle2.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
+import { AuthGuard } from './auth.guard';
 
 
 
 
 const routes: Routes = [
-  {path:'login',component: LoginComponent},
-  {path:'dashboard',component: DashboardComponent, children:[
-    {path:'home',component: HomeComponent},
-    {path:'welcome',component: WelcomeComponent},
-    {path: 'data-binding', component: DataBindingComponent},
-    {path:'calculator', component: CalculatorComponent},
-    {path: 'directives', component:DirectivesComponent},
-    {path: 'event-registration', component:EventRegistrationComponent},
-      {path: 'employees', component:EmployeesComponent},
-      {path: 'employees', component:EmployeesComponent},
-    {path: 'flipkart', component:FlipkartComponent},
-     {path: 'vehicles', component:VehiclesComponent},
-      {path: 'acconts', component:AccontsComponent},
-    {path: 'products', component:ProductsComponent},
-      {path: 'contact-ceo', component:ContactCeoComponent},
-
-  ]},
-  {path:'', component: LoginComponent},
-  {path:'**', component: PageNotFoundComponent}
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',  canActivate:[AuthGuard],component: DashboardComponent, children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: 'data-binding', component: DataBindingComponent },
+      { path: 'calculator', component: CalculatorComponent },
+      { path: 'directives', component: DirectivesComponent },
+      { path: 'event-registration', component: EventRegistrationComponent },
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'flipkart', component: FlipkartComponent },
+      { path: 'vehicles', component: VehiclesComponent },
+      { path: 'acconts', component: AccontsComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'contact-ceo', component: ContactCeoComponent },
+      { path: 'payment', loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule) },
+      { path: 'vehicle2', component: Vehicle2Component },
+        { path: 'create-user', component: CreateUserComponent }, 
+          { path: 'create-vehicle', component:CreateVehicleComponent}
+    ]
+  },
+  { path: '', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 
 ];
 

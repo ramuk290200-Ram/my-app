@@ -11,6 +11,7 @@ export class ProductService {
 
   }
  getproducts():Observable<any> {
-    return this.httpclient.get('https://fakestoreapi.com/products')
+    return this.httpclient.get('https://fakestoreapi.com/products');
   }
-}
+  
+  }

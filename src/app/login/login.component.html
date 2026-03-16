@@ -1,12 +1,12 @@
 <div class="parent">
-    <form >
+    <form  [formGroup]="loginForm" (ngSubmit)="login()">
        <h1>login</h1>
-        <label for="">email</label>
-        <input type="text">
+        <label for="">username</label>
+        <input type="text" formControlName="username">
         <br>
         <label for="">password</label>
-        <input type="password">
+        <input type="password" formControlName="password">
         <br>
-       <input type="submit" value="login" routerLink="/dashboard">
+      <button type="submit" class="btn btn-primary" width="10%">login</button>
     </form>
 </div>

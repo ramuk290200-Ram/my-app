@@ -14,8 +14,13 @@
             <li routerLink="acconts"> Acconts</li>
             <li routerLink="products"> products</li>
             <li routerLink="contact-ceo"> contact-ceo</li>
+            <li routerLink="payment/upi"> upi</li>
+            <li routerLink="payment/cardpayment"> card</li>
+            <li routerLink="vehicle2"> vehicle2</li>
+            <li routerLink="create-user"> create-user</li>
+            <li routerLink="create-vehicle"> create-vehicle</li>
         </ul>
-        <button routerLink="/login">logout</button>
+        <button (click)="logout()">logout</button>
     </div>
     <div class="right">
         <router-outlet></router-outlet>

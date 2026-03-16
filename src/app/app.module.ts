@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { EventRegistrationComponent } from './event-registration/event-registration.component';
@@ -20,6 +20,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccontsComponent } from './acconts/acconts.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactModule } from './contact/contact.module';
+import { ColorsDirective } from './colors.directive';
+import { MoviesComponent } from './movies/movies.component';
+import { RupeesPipe } from './rupees.pipe';
+import { ColorDirective } from './color.directive';
+import { Vehicle2Component } from './vehicle2/vehicle2.component';
+import { StudentsComponent } from './students/students.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
 
 
 
@@ -41,6 +49,14 @@ import { ContactModule } from './contact/contact.module';
     VehiclesComponent,
     AccontsComponent,
     ProductsComponent,
+    ColorsDirective,
+    MoviesComponent,
+    RupeesPipe,
+    ColorDirective,
+    Vehicle2Component,
+    StudentsComponent,
+    CreateUserComponent,
+    CreateVehicleComponent,
    
   ],
   imports: [
@@ -48,7 +64,8 @@ import { ContactModule } from './contact/contact.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ContactModule
+    ContactModule,
+    ReactiveFormsModule
   
   ],
   providers: [],
