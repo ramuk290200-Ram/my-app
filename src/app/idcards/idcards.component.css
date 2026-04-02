@@ -1,0 +1,37 @@
+.card-container{
+  width:600px;
+  border-radius:15px;
+  padding:20px;
+  background:#e6f3ff;
+  border:2px solid #ccc;
+  margin:20px auto;
+}
+
+.header{
+  text-align:center;
+}
+
+.header h2{
+  color:#1a4ea1;
+  margin:0;
+}
+
+.content{
+  display:flex;
+  margin-top:15px;
+}
+
+.photo img{
+  width:120px;
+  height:140px;
+  border-radius:10px;
+  border:2px solid #fff;
+}
+
+.details{
+  margin-left:20px;
+}
+
+.details p{
+  margin:5px 0;
+}

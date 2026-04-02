@@ -1,4 +1,5 @@
-<p>create-vehicle works!</p>
+<h1>{{id?'Edit' : 'create'}}</h1>
+
 <form  [formGroup]="vehicleForm" (ngSubmit)="submit()">
     <label for="">Vehicle</label>
     <input type="text" formControlName="Vehicle"><br>

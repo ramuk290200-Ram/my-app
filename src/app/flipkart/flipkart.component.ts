@@ -16,7 +16,7 @@ export class FlipkartComponent {
     { name: "Office Chair", price: 9000, rating: 4.2, freeDelivery: true },
     { name: "Bluetooth Speaker", price: 2500, rating: 4.4, freeDelivery: true },
     { name: "Running Shorts", price: 1200, rating: 3.9, freeDelivery: false },
-    { name: "Smart Watch", price: 5000, rating: 4.3, freeDelivery: true }
+    { name: "Smart Watch", price: 5000, rating: 4.3, freeDelivery: true },
   ]
   name: string = "";
   price: number = 0;

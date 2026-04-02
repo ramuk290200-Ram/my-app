@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { capgeminiEmail } from '../validator';
 
 @Component({
   selector: 'app-create-user',
@@ -7,15 +8,62 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent {
-userForm:FormGroup = new FormGroup({
-name:new FormControl(),
-age:new FormControl(),
-email:new FormControl(),
-phone:new FormControl()
-})
-submit(){
-  console.log(this.userForm);
-}
+  userForm: FormGroup = new FormGroup({
+    name: new FormControl('',[Validators.required,Validators.minLength(3)]),
+    age: new FormControl('',[Validators.required, Validators.min(18),Validators.max(100)]),
+    email: new FormControl('',[Validators.required, Validators.email,capgeminiEmail]),
+    phone: new FormControl('',[Validators.min(1000000000), Validators.max(9999999999)]),
+    password:new FormControl('',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/)]),
+    address: new FormControl({
+      city: new FormControl('',[Validators.required, Validators.minLength(3)]),
+      pin: new FormControl('',[Validators.required, Validators.min(100000),Validators.max(999999)]),
+    }),
+    type: new FormControl(),
+    //busfee: new FormControl(),
+    //hostelfee: new FormControl(),
+        cards: new FormArray([])
+  })
+    get cardsFormArray(){
+      return this.userForm.get('cards') as FormArray;
+    }
+    addcard(){
+      this.cardsFormArray.push(
+        new FormGroup({
+          name: new FormControl('',[Validators.required, Validators.minLength(3)]),
+             number: new FormControl('',[Validators.min(1000000000000000),Validators.max(9999999999999999)]),
+                cvv: new FormControl('',[Validators.min(100),Validators.max(999)]),
+        })
+      )
+    }
+  constructor() {
+    this.userForm.get('type')?.valueChanges.subscribe(
+      (data: String) => {
+        if (data == 'dayscholar') {
+          // add bus fee
+          this.userForm.addControl('busfee', new FormControl('',[Validators.required]));
+          // remove hostel fee
+          this.userForm.removeControl('hostelfee');
+        }
+        else if (data == 'residential') {
+          // add hostel fee
+          this.userForm.addControl('hostelfee', new FormControl('',[Validators.required]));
+          // remove busfee
+          this.userForm.removeControl('busfee');
+        }
+      }
+    )
+
+  }
+  delete(i:number){
+    this.cardsFormArray.removeAt(i);
+  }
+  edit(i:number){
+    this.cardsFormArray.updateOn;
+  }
+
+  submit() {
+    console.log(this.userForm);
+  }
 
 
 

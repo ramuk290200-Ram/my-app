@@ -19,6 +19,13 @@ import { Vehicle2Component } from './vehicle2/vehicle2.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
 import { AuthGuard } from './auth.guard';
+import { ViewVehicleComponent } from './view-vehicle/view-vehicle.component';
+import { Product1Component } from './product1/product1.component';
+import { ParentComponent } from './parent/parent.component';
+import { ItemsComponent } from './items/items.component';
+import { CartComponent } from './cart/cart.component';
+import { NavComponent } from './nav/nav.component';
+import { CommunicationComponent } from './communication/communication.component';
 
 
 
@@ -26,7 +33,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: 'dashboard',  canActivate:[AuthGuard],component: DashboardComponent, children: [
+    path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent, children: [
       { path: 'home', component: HomeComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'data-binding', component: DataBindingComponent },
@@ -42,8 +49,17 @@ const routes: Routes = [
       { path: 'contact-ceo', component: ContactCeoComponent },
       { path: 'payment', loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule) },
       { path: 'vehicle2', component: Vehicle2Component },
-        { path: 'create-user', component: CreateUserComponent }, 
-          { path: 'create-vehicle', component:CreateVehicleComponent}
+      { path: 'create-user', component: CreateUserComponent },
+      { path: 'create-vehicle', component: CreateVehicleComponent },
+      { path: 'view-vehicle/:id', component: ViewVehicleComponent },
+      { path: 'edit-vehicle/:id', component: CreateVehicleComponent },
+      { path: 'product1', component: Product1Component },
+      { path: 'parent', component: ParentComponent },
+        { path: 'items', component: ItemsComponent},
+          { path: 'cart', component: CartComponent},
+            { path: 'nav', component: NavComponent },
+             { path: 'communication', component: CommunicationComponent },
+
     ]
   },
   { path: '', component: LoginComponent },

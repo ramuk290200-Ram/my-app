@@ -16,7 +16,7 @@ import { EventRegistrationComponent } from './event-registration/event-registrat
 import { EmployeesComponent } from './employees/employees.component';
 import { FlipkartComponent } from './flipkart/flipkart.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AccontsComponent } from './acconts/acconts.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactModule } from './contact/contact.module';
@@ -28,6 +28,20 @@ import { Vehicle2Component } from './vehicle2/vehicle2.component';
 import { StudentsComponent } from './students/students.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
+import { ViewVehicleComponent } from './view-vehicle/view-vehicle.component';
+import { TokenInterceptor } from './token.interceptor';
+import { Product1Component } from './product1/product1.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { RatingComponent } from './rating/rating.component';
+import { ItemsComponent } from './items/items.component';
+import { CartComponent } from './cart/cart.component';
+import { NavComponent } from './nav/nav.component';
+import { CommunicationComponent } from './communication/communication.component';
+import { Calculator2Component } from './calculator2/calculator2.component';
+import { ActionsComponent } from './actions/actions.component';
+import { SummaryComponent } from './summary/summary.component';
+
 
 
 
@@ -57,6 +71,19 @@ import { CreateVehicleComponent } from './create-vehicle/create-vehicle.componen
     StudentsComponent,
     CreateUserComponent,
     CreateVehicleComponent,
+    ViewVehicleComponent,
+    Product1Component,
+    ParentComponent,
+    ChildComponent,
+    RatingComponent,
+    ItemsComponent,
+    CartComponent,
+    NavComponent,
+    CommunicationComponent,
+    Calculator2Component,
+    ActionsComponent,
+    SummaryComponent,
+   
    
   ],
   imports: [
@@ -65,10 +92,16 @@ import { CreateVehicleComponent } from './create-vehicle/create-vehicle.componen
     FormsModule,
     HttpClientModule,
     ContactModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 
 })
